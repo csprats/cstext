@@ -1,4 +1,10 @@
-const  applyStyle = (style) => {
+const modal = document.getElementById('modal')
+const closeModal = document.getElementById('close')
+const input = document.getElementById('url')
+let insertedUrl = false
+let href = ''
+
+const  applyStyle = (style, url) => {
   const selection = window.getSelection()
   if (!selection || selection.rangeCount === 0) {
     return
@@ -9,6 +15,7 @@ const  applyStyle = (style) => {
 
   const span = document.createElement(style)
   span.textContent = selectedText
+  if (url) span.href = url
 
   range.deleteContents()
   range.insertNode(span)
@@ -20,7 +27,6 @@ const downlod = (link) => {
 
   const url = URL.createObjectURL(blob)
   link.href = url
-  link.click()
 }
 
 document.getElementById('bold-type').addEventListener('click', () => {
@@ -35,8 +41,26 @@ document.getElementById('cursive').addEventListener('click', () => {
   applyStyle('i')
 })
 
-document.getElementById('normal').addEventListener('click', () => {
-  applyStyle('p')
+document.getElementById('underline').addEventListener('click', () => {
+  applyStyle('u')
+})
+
+document.getElementById('code').addEventListener('click', () => {
+  applyStyle('code')
+})
+
+document.getElementById('link').addEventListener('click', () => {
+  if (insertedUrl) {
+    applyStyle('a', href)
+    insertedUrl = false
+  }
+  else modal.showModal()
+})
+
+closeModal.addEventListener('click', () => {
+  insertedUrl = true
+  href = input.value
+  modal.close()
 })
 
 document.getElementById('download').addEventListener('click', () => {
