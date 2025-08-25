@@ -44,7 +44,7 @@ const publish = () => {
     },
     body: JSON.stringify({
       user: username,
-      content: document.getElementById('text').innerHTML + '<style>html { text-align: center; font-family: system-ui; }</style>'
+      message: document.getElementById('text').innerHTML + '<style>html { text-align: center; font-family: system-ui; }</style>'
     })
   })
 }
