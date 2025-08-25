@@ -4,7 +4,14 @@ const input = document.getElementById('url')
 let insertedUrl = false
 let href = ''
 
-const  applyStyle = (style, url) => {
+
+const namemodal = document.getElementById('username-dialog')
+const closeNameModal = document.getElementById('close-username')
+const inputName = document.getElementById('username')
+let insertedName = false
+let username = ''
+
+const applyStyle = (style, url) => {
   const selection = window.getSelection()
   if (!selection || selection.rangeCount === 0) {
     return
@@ -28,6 +35,26 @@ const downlod = (link) => {
   const url = URL.createObjectURL(blob)
   link.href = url
 }
+
+const publish = () => {
+  fetch('https://backend-csblog.onrender.com/api/cschat', {
+    method: 'POST', // Especifica el método POST
+    headers: {
+      'Content-Type': 'application/json' // Indica que el cuerpo es JSON
+    },
+    body: JSON.stringify({
+      user: username,
+      content: document.getElementById('text').innerHTML + '<style>html { text-align: center; font-family: system-ui; }</style>'
+    })
+  })
+}
+
+closeNameModal.addEventListener('click', () => {
+  username = inputName.value
+  insertedName = true
+  namemodal.close()
+  publish()
+})
 
 document.getElementById('bold-type').addEventListener('click', () => {
   applyStyle('b')
@@ -65,4 +92,9 @@ closeModal.addEventListener('click', () => {
 
 document.getElementById('download').addEventListener('click', () => {
   downlod(document.getElementById('download').parentNode)
+})
+
+document.getElementById('publish').addEventListener('click', () => {
+  if (insertedName) publish()
+  else namemodal.showModal()
 })

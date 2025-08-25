@@ -19,6 +19,7 @@
         <a download="page.html">
           <button id="download">Export in html</button>
         </a>
+        <button id="publish">Publish in csblog</button>
       </nav>
     </header>
       <dialog id="modal">
@@ -26,6 +27,12 @@
         <input type="text" placeholder="https://" value="https://" spellcheck="false" id="url">
         <br>
         <button id="close">Close</button>
+      </dialog>
+      <dialog id="username-dialog">
+        <h2>Enter a username</h2>
+        <input type="text" spellcheck="false" id="username">
+        <br>
+        <button id="close-username">Publish!</button>
       </dialog>
       <div id="text" contenteditable="true" spellcheck="true">
         <h1>This is a title</h1>
