@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="src/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSText</title>
+  </head>
+  <body>
+    <header>
+      <h1>CSText</h1>
+      <button id="bold-type">Type bold</button>
+      <button id="title">Title</button>
+      <button id="cursive">Cursive</button>
+      <button id="code">Code</button>
+      <button id="underline">Underline</button>
+      <button id="link">Link</button>
+      <nav>
+        <a download="page.html">
+          <button id="download">Export in html</button>
+        </a>
+        <button id="publish">Publish in csblog</button>
+      </nav>
+    </header>
+      <dialog id="modal">
+        <h2>Link</h2>
+        <input type="text" placeholder="https://" value="https://" spellcheck="false" id="url">
+        <br>
+        <button id="close">Close</button>
+      </dialog>
+      <dialog id="username-dialog">
+        <h2>Enter a username</h2>
+        <input type="text" spellcheck="false" id="username">
+        <br>
+        <button id="close-username">Publish!</button>
+      </dialog>
+      <div id="text" contenteditable="true" spellcheck="true">
+        <h1>This is a title</h1>
+        <div>A text</div>
+      </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

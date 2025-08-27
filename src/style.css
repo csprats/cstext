@@ -1,0 +1,63 @@
+html {
+  text-align: center;
+  font-family: system-ui;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #eee;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+dialog {
+  display: none;
+  position: fixed;
+  transform: translate(5%, -20%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+}
+
+dialog[open] {
+  display: block;
+}
+
+input {
+  border-radius: 8px;
+  border: solid black 2px;
+  background-color: white;
+  padding: 5px;
+  color: black;
+  transition: border-color 2.5s ease;
+  transition: color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+input:hover, input:focus {
+  color: white;
+  border-color: white;
+  background-color: black;
+}
+
+button {
+  border-radius: 999px;
+  border: solid white 1px;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  transition: color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
